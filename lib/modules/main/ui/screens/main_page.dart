@@ -61,35 +61,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Positioned(
-                  bottom: lowerLimit - 56 * 4,
+                  top: lowerLimit + 56 * 2,
                   right: 0,
                   left: 0,
+                  bottom: 36,
                   child: AnimatedOpacity(
                     duration: const Duration(milliseconds: 500),
                     opacity: reachedLimit ? 1 : 0,
                     child: Column(
-                      children: [
-                        Text(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children:
+                            // You can add more items here
+                            [
                           'Reminder',
-                          style: mentuStyle,
-                        ),
-                        const SizedBox(height: 32),
-                        Text(
                           'Camera',
-                          style: mentuStyle,
-                        ),
-                        const SizedBox(height: 32),
-                        Text(
                           'Attachment',
-                          style: mentuStyle,
-                        ),
-                        const SizedBox(height: 32),
-                        Text(
                           'Text Note',
-                          style: mentuStyle,
-                        ),
-                      ],
-                    ),
+                        ]
+                                .map((label) => Text(
+                                      label,
+                                      style: mentuStyle,
+                                    ))
+                                .toList()),
                   ),
                 ),
                 Align(
@@ -122,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       duration: const Duration(seconds: 3),
                       child: FloatingActionButton(
                         onPressed: () => _dropAnimationController?.onReset(),
-                        tooltip: 'Increment',
+                        tooltip: 'Menu',
                         backgroundColor: reachedLimit ? Colors.white : Colors.blue,
                         child: reachedLimit
                             ? const Icon(
